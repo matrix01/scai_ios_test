@@ -31,6 +31,7 @@
 		F1CA22DF26BC2C4D0071CD5D /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA22DC26BC2C4D0071CD5D /* LandingViewController.swift */; };
 		F1CA22E026BC2C4D0071CD5D /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA22DD26BC2C4D0071CD5D /* LandingViewModel.swift */; };
 		F1CA22E426BC30F10071CD5D /* UIImagePickerController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA22E326BC30F10071CD5D /* UIImagePickerController+Rx.swift */; };
+		F1CA22E826BC35A50071CD5D /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA22E726BC35A50071CD5D /* TabBarItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		F1CA22DC26BC2C4D0071CD5D /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		F1CA22DD26BC2C4D0071CD5D /* LandingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
 		F1CA22E326BC30F10071CD5D /* UIImagePickerController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Rx.swift"; sourceTree = "<group>"; };
+		F1CA22E726BC35A50071CD5D /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 			children = (
 				F15751F926BC212200F2C026 /* TabBarViewController.swift */,
 				F15751FA26BC212200F2C026 /* TabBarViewModel.swift */,
+				F1CA22E726BC35A50071CD5D /* TabBarItem.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				F1CA22E426BC30F10071CD5D /* UIImagePickerController+Rx.swift in Sources */,
 				F157520326BC21C900F2C026 /* StoryboardName.swift in Sources */,
 				F15751EB26BC209900F2C026 /* Response.swift in Sources */,
+				F1CA22E826BC35A50071CD5D /* TabBarItem.swift in Sources */,
 				F15751DB26BC1F9200F2C026 /* Application.swift in Sources */,
 				F15751DF26BC1FAC00F2C026 /* Navigator.swift in Sources */,
 				F15751E326BC202000F2C026 /* ViewModelType.swift in Sources */,
