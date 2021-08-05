@@ -10,24 +10,40 @@ import XCTest
 
 class scai_ios_testTests: XCTestCase {
 
+    var networkManagerMock: NetworkManagerMock!
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        networkManagerMock = NetworkManagerMock()
     }
 
+    func testNetworkMockDecodeTest() {
+        guard let request = ApiRequest.detailList.request else {
+            XCTFail("Api request should not be nil.")
+            return
+        }
+        let expectation = XCTestExpectation(description: "Network request expectation")
+        
+        var detailList: PhotoDetail?
+        
+        networkManagerMock.request(urlRequest: request, type: PhotoDetail.self)
+            .subscribe(onNext: { list in
+                defer {
+                    expectation.fulfill()
+                }
+                detailList = list 
+            }, onError: { error in
+                XCTAssertNil(error)
+                XCTFail("Network call should pass.")
+            }).disposed(by: rx.disposeBag)
+        
+        wait(for: [expectation], timeout: 10.0)
+        XCTAssertNotNil(detailList)
+    }
+    
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        networkManagerMock = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

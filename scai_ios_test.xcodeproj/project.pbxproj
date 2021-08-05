@@ -35,6 +35,11 @@
 		F1CA22F526BC36670071CD5D /* TypeSelect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CA22F226BC36670071CD5D /* TypeSelect.storyboard */; };
 		F1CA22F626BC36670071CD5D /* TypeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA22F326BC36670071CD5D /* TypeSelectViewController.swift */; };
 		F1CA22F726BC36670071CD5D /* TypeSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA22F426BC36670071CD5D /* TypeSelectViewModel.swift */; };
+		F1CA22FB26BC42820071CD5D /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA22FA26BC42820071CD5D /* PhotoDetail.swift */; };
+		F1CA22FF26BC42E00071CD5D /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA22FE26BC42E00071CD5D /* RequestProtocol.swift */; };
+		F1CA230326BC45340071CD5D /* MockDataCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA230226BC45340071CD5D /* MockDataCreator.swift */; };
+		F1CA230826BC45770071CD5D /* photo_detail.json in Resources */ = {isa = PBXBuildFile; fileRef = F1CA230726BC45770071CD5D /* photo_detail.json */; };
+		F1CA230E26BC45D40071CD5D /* NetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA230D26BC45D40071CD5D /* NetworkMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +79,11 @@
 		F1CA22F226BC36670071CD5D /* TypeSelect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TypeSelect.storyboard; sourceTree = "<group>"; };
 		F1CA22F326BC36670071CD5D /* TypeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSelectViewController.swift; sourceTree = "<group>"; };
 		F1CA22F426BC36670071CD5D /* TypeSelectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSelectViewModel.swift; sourceTree = "<group>"; };
+		F1CA22FA26BC42820071CD5D /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetail.swift; sourceTree = "<group>"; };
+		F1CA22FE26BC42E00071CD5D /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		F1CA230226BC45340071CD5D /* MockDataCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataCreator.swift; sourceTree = "<group>"; };
+		F1CA230726BC45770071CD5D /* photo_detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = photo_detail.json; sourceTree = "<group>"; };
+		F1CA230D26BC45D40071CD5D /* NetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,8 +145,11 @@
 		F157517B26BC164200F2C026 /* scai_ios_testTests */ = {
 			isa = PBXGroup;
 			children = (
+				F1CA230626BC454A0071CD5D /* Fixture */,
 				F157517C26BC164200F2C026 /* scai_ios_testTests.swift */,
 				F157517E26BC164200F2C026 /* Info.plist */,
+				F1CA230226BC45340071CD5D /* MockDataCreator.swift */,
+				F1CA230D26BC45D40071CD5D /* NetworkMock.swift */,
 			);
 			path = scai_ios_testTests;
 			sourceTree = "<group>";
@@ -163,6 +176,7 @@
 		F15751C926BC1E2800F2C026 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F1CA22FA26BC42820071CD5D /* PhotoDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				F15751E626BC204100F2C026 /* NetworkManager.swift */,
+				F1CA22FE26BC42E00071CD5D /* RequestProtocol.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -234,6 +249,14 @@
 				F1CA22F426BC36670071CD5D /* TypeSelectViewModel.swift */,
 			);
 			path = TypeSelect;
+			sourceTree = "<group>";
+		};
+		F1CA230626BC454A0071CD5D /* Fixture */ = {
+			isa = PBXGroup;
+			children = (
+				F1CA230726BC45770071CD5D /* photo_detail.json */,
+			);
+			path = Fixture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CA230826BC45770071CD5D /* photo_detail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,12 +388,14 @@
 				F15751E326BC202000F2C026 /* ViewModelType.swift in Sources */,
 				F1CA22F726BC36670071CD5D /* TypeSelectViewModel.swift in Sources */,
 				F15751FC26BC212200F2C026 /* TabBarViewController.swift in Sources */,
+				F1CA22FB26BC42820071CD5D /* PhotoDetail.swift in Sources */,
 				F15751E726BC204100F2C026 /* NetworkManager.swift in Sources */,
 				F157516A26BC163F00F2C026 /* ViewController.swift in Sources */,
 				F1CA22F626BC36670071CD5D /* TypeSelectViewController.swift in Sources */,
 				F1CA22DF26BC2C4D0071CD5D /* LandingViewController.swift in Sources */,
 				F1CA22E026BC2C4D0071CD5D /* LandingViewModel.swift in Sources */,
 				F157516626BC163F00F2C026 /* AppDelegate.swift in Sources */,
+				F1CA22FF26BC42E00071CD5D /* RequestProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +403,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CA230326BC45340071CD5D /* MockDataCreator.swift in Sources */,
 				F157517D26BC164200F2C026 /* scai_ios_testTests.swift in Sources */,
+				F1CA230E26BC45D40071CD5D /* NetworkMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,5 +25,12 @@ class TypeSelectViewController: ViewController {
         output.imageProvider
             .drive(imageView.rx.image)
             .disposed(by: rx.disposeBag)
+        
+        output.datasourceProvider
+            .asObservable()
+            .bind(to: pickerView.rx.itemTitles) { _, item in
+                return "\(item)"
+            }
+            .disposed(by: rx.disposeBag)
     }
 }
