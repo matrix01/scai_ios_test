@@ -11,7 +11,7 @@ import UIKit
 final class Application: NSObject {
     static let shared = Application()
     var window: UIWindow?
-    var provider: NetworkManager?
+    var provider: NetworkProtocol?
     let navigator: Navigator
 
     override private init() {

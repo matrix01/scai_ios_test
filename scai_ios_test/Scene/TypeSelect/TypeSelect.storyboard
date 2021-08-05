@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pLY-qU-XIa">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Type Select View Controller-->
+        <scene sceneID="sJg-mK-bA8">
+            <objects>
+                <viewController id="pLY-qU-XIa" customClass="TypeSelectViewController" customModule="scai_ios_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eNn-di-22X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RlP-Si-D8l">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="554"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RlP-Si-D8l" secondAttribute="height" multiplier="207:277" id="bR5-pB-Dhp"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="es0-bQ-Vkn">
+                                <rect key="frame" x="15" y="554" width="384" height="308"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAU-0V-KfZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ao1-jY-lvV">
+                                                <rect key="frame" x="342" y="7.5" width="34" height="30"/>
+                                                <state key="normal" title="Save"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hl-J9-3ce">
+                                                <rect key="frame" x="8" y="12.5" width="85" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="0hl-J9-3ce" firstAttribute="leading" secondItem="hAU-0V-KfZ" secondAttribute="leading" constant="8" id="GFX-lh-9QY"/>
+                                            <constraint firstItem="0hl-J9-3ce" firstAttribute="centerY" secondItem="hAU-0V-KfZ" secondAttribute="centerY" id="Glq-Vb-Avm"/>
+                                            <constraint firstItem="Ao1-jY-lvV" firstAttribute="centerY" secondItem="hAU-0V-KfZ" secondAttribute="centerY" id="KS3-Ko-Nnw"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ao1-jY-lvV" secondAttribute="trailing" constant="8" id="SGr-5r-b8c"/>
+                                            <constraint firstAttribute="height" constant="45" id="lxr-3D-aNK"/>
+                                        </constraints>
+                                    </view>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5l-L7-eqj">
+                                        <rect key="frame" x="0.0" y="45" width="384" height="263"/>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ep6-45-ex7"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="RlP-Si-D8l" firstAttribute="leading" secondItem="ep6-45-ex7" secondAttribute="leading" id="08R-6F-A9B"/>
+                            <constraint firstItem="es0-bQ-Vkn" firstAttribute="top" secondItem="RlP-Si-D8l" secondAttribute="bottom" id="DnX-8q-tjG"/>
+                            <constraint firstItem="es0-bQ-Vkn" firstAttribute="trailing" secondItem="ep6-45-ex7" secondAttribute="trailing" constant="-15" id="JIR-iX-JQT"/>
+                            <constraint firstItem="es0-bQ-Vkn" firstAttribute="leading" secondItem="ep6-45-ex7" secondAttribute="leading" constant="15" id="ebd-Ov-yUn"/>
+                            <constraint firstItem="RlP-Si-D8l" firstAttribute="trailing" secondItem="ep6-45-ex7" secondAttribute="trailing" id="h6f-Bh-eMs"/>
+                            <constraint firstItem="RlP-Si-D8l" firstAttribute="top" secondItem="eNn-di-22X" secondAttribute="top" id="l2Y-6A-DOL"/>
+                            <constraint firstItem="ep6-45-ex7" firstAttribute="bottom" secondItem="es0-bQ-Vkn" secondAttribute="bottom" id="mGE-JJ-T6D"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="RlP-Si-D8l" id="k0e-dk-jOY"/>
+                        <outlet property="pickerView" destination="l5l-L7-eqj" id="aOV-Sj-R86"/>
+                        <outlet property="saveButton" destination="Ao1-jY-lvV" id="ipi-e5-Ydm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h27-72-ydQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="73.660714285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

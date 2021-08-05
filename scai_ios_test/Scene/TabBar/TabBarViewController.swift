@@ -22,7 +22,6 @@ class TabBarViewController: UITabBarController, Navigatable, RxMediaPickerDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
         // Do any additional setup after loading the view.
         bindViewModel()
     }
@@ -61,13 +60,25 @@ class TabBarViewController: UITabBarController, Navigatable, RxMediaPickerDelega
     fileprivate func takePhoto() {
         picker.selectImage()
             .observe(on: MainScheduler.instance)
-            .subscribe { (image) in
-                print(image)
-            }
+            .catch({ error -> Observable<(UIImage, UIImage?)> in
+                .empty()
+            })
+            .map {$0.0}
+            .bind(to: rx.showImagePreview)
             .disposed(by: rx.disposeBag)
 
     }
 
+}
+
+fileprivate extension Reactive where Base: TabBarViewController {
+    var showImagePreview: Binder<UIImage> {
+        Binder(self.base) {base, image in
+            guard let provider = Application.shared.provider else { return }
+            let viewModel = TypeSelectViewModel(provider: provider, image: image)
+            base.navigator?.show(segue: .typeSelect(viewModel: viewModel), sender: base)
+        }
+    }
 }
 
 extension RxMediaPickerDelegate where Self: TabBarViewController {

@@ -18,6 +18,7 @@ class Navigator {
     // MARK: - segues list, all app scenes
     enum Scene {
         case tab(viewModel: ViewModel)
+        case typeSelect(viewModel: ViewModel)
     }
 
     enum Transition {
@@ -31,7 +32,11 @@ class Navigator {
     func get(segue: Scene) -> UIViewController? {
         switch segue {
         case .tab(let viewModel):
-            return TabBarViewController(viewModel: viewModel, navigator: self)
+            return NavigationController(rootViewController: TabBarViewController(viewModel: viewModel, navigator: self))
+        case .typeSelect(viewModel: let viewModel):
+            let typeVC = StoryboardName.typeSelect.viewController as? TypeSelectViewController
+            typeVC?.setup(viewModel: viewModel, navigator: self)
+            return typeVC ?? UIViewController()
         }
     }
 

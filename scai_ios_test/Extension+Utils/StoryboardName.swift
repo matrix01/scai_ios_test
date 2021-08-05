@@ -10,6 +10,7 @@ import UIKit
 enum StoryboardName: String {
     case landing = "Landing"
     case gallery = "Gallery"
+    case typeSelect = "TypeSelect"
     
     var viewController: ViewController? {
         UIStoryboard(name: self.rawValue, bundle: nil)
