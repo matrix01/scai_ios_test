@@ -41,10 +41,11 @@ enum TabBarItem: Int {
     }
 }
 
-class TabBarViewController: UITabBarController, Navigatable {
+class TabBarViewController: UITabBarController, Navigatable, RxMediaPickerDelegate {
 
     var viewModel: TabBarViewModel?
     var navigator: Navigator?
+    var picker: RxMediaPicker!
 
     init(viewModel: ViewModel?, navigator: Navigator) {
         self.viewModel = viewModel as? TabBarViewModel
@@ -67,6 +68,13 @@ class TabBarViewController: UITabBarController, Navigatable {
         guard let selectedItem = tabBar.items?.firstIndex(of: item) else { return }
         let tabBarMenuItem = TabBarItem(rawValue: selectedItem)
         tabBar.tintColor = tabBarMenuItem?.tintColor
+        
+        switch item.title {
+        case "Camera":
+            self.takePhoto()
+        default:
+            break
+        }
     }
     
     /// setup tab bar veiw controllers
@@ -83,7 +91,20 @@ class TabBarViewController: UITabBarController, Navigatable {
                 strongSelf.setViewControllers(controllers, animated: false)
             }
         }).disposed(by: rx.disposeBag)
+        
+        picker = RxMediaPicker(delegate: self)
     }
+    
+    fileprivate func takePhoto() {
+        picker.selectImage()
+            .observe(on: MainScheduler.instance)
+            .subscribe { (image) in
+                print(image)
+            }
+            .disposed(by: rx.disposeBag)
+
+    }
+
 }
 
 extension RxMediaPickerDelegate where Self: TabBarViewController {
