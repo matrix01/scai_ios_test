@@ -8,6 +8,7 @@
 import Foundation
 import Realm
 import RealmSwift
+import RxDataSources
 
 // MARK:- SavedPhotoModel
 struct SavedPhotoModel: Codable {
@@ -31,6 +32,32 @@ extension SavedPhotoModel: RealmRepresentable {
         }
     }
 }
+
+extension SavedPhotoModel {
+    var image: UIImage? {
+        load(fileName: id)
+    }
+    
+    private func load(fileName: String) -> UIImage? {
+        let fileURL = FileManager.default.getDocumentsDirectory().appendingPathComponent(id)
+         
+        guard let imageData = try? Data(contentsOf: fileURL) else  { return nil }
+        return UIImage(data: imageData)
+    }
+}
+
+extension SavedPhotoModel: IdentifiableType, Equatable {
+    typealias Identity = String
+    
+    var identity: String {
+        id
+    }
+}
+
+func == (rhs: SavedPhotoModel, lhs: SavedPhotoModel) -> Bool {
+    rhs.id == lhs.id
+}
+
 
 // MARK:- Realm RMSavedPhotoModel
 class RMSavedPhotoModel: Object {

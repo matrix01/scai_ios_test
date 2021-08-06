@@ -12,6 +12,7 @@ class TypeSelectViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Type Selection"
         bindViewModel()
     }
     
@@ -47,6 +48,16 @@ class TypeSelectViewController: ViewController {
             }
             .disposed(by: rx.disposeBag)
 
-        
+        output.showGalleryTrigger
+            .drive(rx.showImageGallery)
+            .disposed(by: rx.disposeBag)
+    }
+}
+
+fileprivate extension Reactive where Base: TypeSelectViewController {
+    var showImageGallery: Binder<GalleryViewModel> {
+        Binder(self.base) {base, viewModel in
+            base.navigator?.show(segue: .gallery(viewModel: viewModel), sender: base)
+        }
     }
 }

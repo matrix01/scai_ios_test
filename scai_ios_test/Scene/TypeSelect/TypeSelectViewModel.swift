@@ -15,6 +15,7 @@ class TypeSelectViewModel: ViewModel, ViewModelType {
     struct Output {
         let imageProvider: Driver<UIImage?>
         let datasourceProvider: Driver<[String]>
+        let showGalleryTrigger: Driver<GalleryViewModel>
     }
     
     private var previewImage: UIImage?
@@ -49,15 +50,18 @@ class TypeSelectViewModel: ViewModel, ViewModelType {
             .bind(to: titleRelay)
             .disposed(by: rx.disposeBag)
         
+        let galleryRelay = BehaviorRelay<GalleryViewModel?>(value: nil)
+        
         Observable.combineLatest(input.saveTrigger.asObservable(), titleRelay)
             .subscribe {[weak self] (row, titles) in
                 if let title = titles?[row],
-                   let localImageName = self?.previewImage?.saveImage() {
+                   let localImageName = self?.previewImage?.saveImage(),
+                   let provider = self?.provider {
                     
                     //Save a resized image and store in database
                     let savedPhotoModel = SavedPhotoModel(id: localImageName, typeModelName: title)
                     savedPhotoModel.asRealm().save()
-                    print(savedPhotoModel)
+                    galleryRelay.accept(GalleryViewModel(provider: provider))
                 }
             }
             .disposed(by: rx.disposeBag)
@@ -68,7 +72,8 @@ class TypeSelectViewModel: ViewModel, ViewModelType {
             .asDriver(onErrorJustReturn: [])
         
         return Output(imageProvider: imageRelay.asDriver(),
-                      datasourceProvider: titleProvider)
+                      datasourceProvider: titleProvider,
+                      showGalleryTrigger: galleryRelay.asObservable().filterNil().asDriverOnErrorJustComplete())
     }
 }
 

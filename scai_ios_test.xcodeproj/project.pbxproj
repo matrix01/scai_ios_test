@@ -49,6 +49,9 @@
 		F1CA233326BD848E0071CD5D /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CA233026BD848E0071CD5D /* Gallery.storyboard */; };
 		F1CA233426BD848E0071CD5D /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA233126BD848E0071CD5D /* GalleryViewController.swift */; };
 		F1CA233526BD848E0071CD5D /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA233226BD848E0071CD5D /* GalleryViewModel.swift */; };
+		F1CA233B26BD8A130071CD5D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA233926BD8A130071CD5D /* PhotoCollectionViewCell.swift */; };
+		F1CA233C26BD8A130071CD5D /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1CA233A26BD8A130071CD5D /* PhotoCollectionViewCell.xib */; };
+		F1CA234226BD91EC0071CD5D /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA234126BD91EC0071CD5D /* UIView+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +105,9 @@
 		F1CA233026BD848E0071CD5D /* Gallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
 		F1CA233126BD848E0071CD5D /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		F1CA233226BD848E0071CD5D /* GalleryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		F1CA233926BD8A130071CD5D /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		F1CA233A26BD8A130071CD5D /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		F1CA234126BD91EC0071CD5D /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +239,7 @@
 				F1CA231526BCE7290071CD5D /* Reusable.swift */,
 				F1CA231926BCE7450071CD5D /* Object+Ext.swift */,
 				F1CA232526BD668B0071CD5D /* FileManager+Ext.swift */,
+				F1CA234126BD91EC0071CD5D /* UIView+Utils.swift */,
 			);
 			path = "Extension+Utils";
 			sourceTree = "<group>";
@@ -287,11 +294,21 @@
 		F1CA232F26BD848E0071CD5D /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				F1CA233826BD89F20071CD5D /* SubView */,
 				F1CA233026BD848E0071CD5D /* Gallery.storyboard */,
 				F1CA233126BD848E0071CD5D /* GalleryViewController.swift */,
 				F1CA233226BD848E0071CD5D /* GalleryViewModel.swift */,
 			);
 			path = Gallery;
+			sourceTree = "<group>";
+		};
+		F1CA233826BD89F20071CD5D /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				F1CA233926BD8A130071CD5D /* PhotoCollectionViewCell.swift */,
+				F1CA233A26BD8A130071CD5D /* PhotoCollectionViewCell.xib */,
+			);
+			path = SubView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1CA22DE26BC2C4D0071CD5D /* Landing.storyboard in Resources */,
+				F1CA233C26BD8A130071CD5D /* PhotoCollectionViewCell.xib in Resources */,
 				F1CA233326BD848E0071CD5D /* Gallery.storyboard in Resources */,
 				F1CA22F526BC36670071CD5D /* TypeSelect.storyboard in Resources */,
 				F157516F26BC164200F2C026 /* Assets.xcassets in Resources */,
@@ -430,9 +448,11 @@
 				F1CA22FB26BC42820071CD5D /* PhotoDetail.swift in Sources */,
 				F1CA233426BD848E0071CD5D /* GalleryViewController.swift in Sources */,
 				F1CA232626BD668B0071CD5D /* FileManager+Ext.swift in Sources */,
+				F1CA233B26BD8A130071CD5D /* PhotoCollectionViewCell.swift in Sources */,
 				F15751E726BC204100F2C026 /* NetworkManager.swift in Sources */,
 				F157516A26BC163F00F2C026 /* ViewController.swift in Sources */,
 				F1CA22F626BC36670071CD5D /* TypeSelectViewController.swift in Sources */,
+				F1CA234226BD91EC0071CD5D /* UIView+Utils.swift in Sources */,
 				F1CA22DF26BC2C4D0071CD5D /* LandingViewController.swift in Sources */,
 				F1CA232226BD5F650071CD5D /* SavedPhotoModel.swift in Sources */,
 				F1CA231226BCE7020071CD5D /* Convertible.swift in Sources */,
