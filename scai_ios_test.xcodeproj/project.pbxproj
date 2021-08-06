@@ -46,6 +46,9 @@
 		F1CA231E26BCE9B80071CD5D /* RMPhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA231D26BCE9B80071CD5D /* RMPhotoDetail.swift */; };
 		F1CA232226BD5F650071CD5D /* SavedPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA232126BD5F650071CD5D /* SavedPhotoModel.swift */; };
 		F1CA232626BD668B0071CD5D /* FileManager+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA232526BD668B0071CD5D /* FileManager+Ext.swift */; };
+		F1CA233326BD848E0071CD5D /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CA233026BD848E0071CD5D /* Gallery.storyboard */; };
+		F1CA233426BD848E0071CD5D /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA233126BD848E0071CD5D /* GalleryViewController.swift */; };
+		F1CA233526BD848E0071CD5D /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA233226BD848E0071CD5D /* GalleryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +99,9 @@
 		F1CA231D26BCE9B80071CD5D /* RMPhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPhotoDetail.swift; sourceTree = "<group>"; };
 		F1CA232126BD5F650071CD5D /* SavedPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPhotoModel.swift; sourceTree = "<group>"; };
 		F1CA232526BD668B0071CD5D /* FileManager+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Ext.swift"; sourceTree = "<group>"; };
+		F1CA233026BD848E0071CD5D /* Gallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
+		F1CA233126BD848E0071CD5D /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		F1CA233226BD848E0071CD5D /* GalleryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +204,7 @@
 		F15751CC26BC1E3100F2C026 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				F1CA232F26BD848E0071CD5D /* Gallery */,
 				F1CA22F126BC36670071CD5D /* TypeSelect */,
 				F1CA22DA26BC2C4D0071CD5D /* Landing */,
 				F15751F726BC212200F2C026 /* TabBar */,
@@ -275,6 +282,16 @@
 				F1CA230726BC45770071CD5D /* photo_detail.json */,
 			);
 			path = Fixture;
+			sourceTree = "<group>";
+		};
+		F1CA232F26BD848E0071CD5D /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				F1CA233026BD848E0071CD5D /* Gallery.storyboard */,
+				F1CA233126BD848E0071CD5D /* GalleryViewController.swift */,
+				F1CA233226BD848E0071CD5D /* GalleryViewModel.swift */,
+			);
+			path = Gallery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1CA22DE26BC2C4D0071CD5D /* Landing.storyboard in Resources */,
+				F1CA233326BD848E0071CD5D /* Gallery.storyboard in Resources */,
 				F1CA22F526BC36670071CD5D /* TypeSelect.storyboard in Resources */,
 				F157516F26BC164200F2C026 /* Assets.xcassets in Resources */,
 			);
@@ -395,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F15751FD26BC212200F2C026 /* TabBarViewModel.swift in Sources */,
+				F1CA233526BD848E0071CD5D /* GalleryViewModel.swift in Sources */,
 				F1CA22C926BC27AB0071CD5D /* Rx+Ext.swift in Sources */,
 				F1CA231E26BCE9B80071CD5D /* RMPhotoDetail.swift in Sources */,
 				F157520726BC22ED00F2C026 /* NavigationController.swift in Sources */,
@@ -409,6 +428,7 @@
 				F15751FC26BC212200F2C026 /* TabBarViewController.swift in Sources */,
 				F1CA231626BCE7290071CD5D /* Reusable.swift in Sources */,
 				F1CA22FB26BC42820071CD5D /* PhotoDetail.swift in Sources */,
+				F1CA233426BD848E0071CD5D /* GalleryViewController.swift in Sources */,
 				F1CA232626BD668B0071CD5D /* FileManager+Ext.swift in Sources */,
 				F15751E726BC204100F2C026 /* NetworkManager.swift in Sources */,
 				F157516A26BC163F00F2C026 /* ViewController.swift in Sources */,

@@ -18,9 +18,13 @@ class TypeSelectViewController: ViewController {
     private func bindViewModel() {
         guard let viewModel = viewModel as? TypeSelectViewModel else { return }
         let willAppear = rx.viewWillAppear.mapToVoid().asDriverOnErrorJustComplete()
+        
+        let initialValue = BehaviorRelay<Int>(value: 0)
+        let combined = Observable.merge([pickerView.rx.itemSelected.map{ $0.row }, initialValue.skip(1).asObservable()])
+        
         let saveTrigger = saveButton.rx.tapGesture()
-            .withLatestFrom(pickerView.rx.itemSelected)
-            .map{ $0.row }
+            .withLatestFrom(combined)
+            .map{ $0 }
             .asDriverOnErrorJustComplete()
         
         let input = TypeSelectViewModel.Input(trigger: willAppear, saveTrigger: saveTrigger)
@@ -34,5 +38,15 @@ class TypeSelectViewController: ViewController {
             .asObservable()
             .bind(to: pickerView.rx.itemTitles) { $1 }
             .disposed(by: rx.disposeBag)
+        
+        output.datasourceProvider
+            .map { $0.count }
+            .drive {[weak self] count in
+                self?.pickerView.selectRow(count/2, inComponent: 0, animated: true)
+                initialValue.accept(0)
+            }
+            .disposed(by: rx.disposeBag)
+
+        
     }
 }
