@@ -18,8 +18,12 @@ class TypeSelectViewController: ViewController {
     private func bindViewModel() {
         guard let viewModel = viewModel as? TypeSelectViewModel else { return }
         let willAppear = rx.viewWillAppear.mapToVoid().asDriverOnErrorJustComplete()
+        let saveTrigger = saveButton.rx.tapGesture()
+            .withLatestFrom(pickerView.rx.itemSelected)
+            .map{ $0.row }
+            .asDriverOnErrorJustComplete()
         
-        let input = TypeSelectViewModel.Input(trigger: willAppear)
+        let input = TypeSelectViewModel.Input(trigger: willAppear, saveTrigger: saveTrigger)
         let output = viewModel.transform(input: input)
         
         output.imageProvider
@@ -28,9 +32,7 @@ class TypeSelectViewController: ViewController {
         
         output.datasourceProvider
             .asObservable()
-            .bind(to: pickerView.rx.itemTitles) { _, item in
-                return "\(item)"
-            }
+            .bind(to: pickerView.rx.itemTitles) { $1 }
             .disposed(by: rx.disposeBag)
     }
 }

@@ -9,6 +9,7 @@ class TypeSelectViewModel: ViewModel, ViewModelType {
 
     struct Input {
         let trigger: Driver<Void>
+        let saveTrigger: Driver<Int>
     }
 
     struct Output {
@@ -25,6 +26,10 @@ class TypeSelectViewModel: ViewModel, ViewModelType {
     }
 
     func transform(input: Input) -> Output {
+        guard let realm = try? Realm() else {
+            fatalError("Unable to instantiate Realm")
+        }
+        
         let imageRelay = BehaviorRelay<UIImage?>(value: nil)
         
         input.trigger.asObservable()
@@ -36,8 +41,34 @@ class TypeSelectViewModel: ViewModel, ViewModelType {
             .bind(to: rx.loadList)
             .disposed(by: rx.disposeBag)
         
+        let rmDetailList = realm.objects(RMPhotoDetailValue.self)
+
+        Observable.changeset(from: rmDetailList)
+            .map { $0.0.mapToDomain() }
+            .map { $0.map { $0.name } }
+            .bind(to: titleRelay)
+            .disposed(by: rx.disposeBag)
+        
+        Observable.combineLatest(input.saveTrigger.asObservable(), titleRelay)
+            .subscribe {[weak self] (row, titles) in
+                if let title = titles?[row],
+                   let localImageName = self?.previewImage?.saveImage() {
+                    
+                    //Save a resized image and store in database
+                    let savedPhotoModel = SavedPhotoModel(id: localImageName, typeModelName: title)
+                    savedPhotoModel.asRealm().save()
+                    print(savedPhotoModel)
+                }
+            }
+            .disposed(by: rx.disposeBag)
+        
+        let titleProvider = titleRelay
+            .asObservable()
+            .filterNil()
+            .asDriver(onErrorJustReturn: [])
+        
         return Output(imageProvider: imageRelay.asDriver(),
-                      datasourceProvider: titleRelay.asObservable().filterNil().asDriver(onErrorJustReturn: []))
+                      datasourceProvider: titleProvider)
     }
 }
 
@@ -61,7 +92,7 @@ fileprivate extension TypeSelectViewModel {
             .subscribe(onNext: { [weak self] list in
                 guard let this = self else { return }
                 this.isFetching.accept(false)
-                this.titleRelay.accept(list.map{ $0.value.name })
+                list.forEach { $1.asRealm().save() }
             }, onError: {[weak self] error in
                 guard let this = self else { return }
                 this.isFetching.accept(false)

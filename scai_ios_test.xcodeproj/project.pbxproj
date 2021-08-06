@@ -40,6 +40,12 @@
 		F1CA230326BC45340071CD5D /* MockDataCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA230226BC45340071CD5D /* MockDataCreator.swift */; };
 		F1CA230826BC45770071CD5D /* photo_detail.json in Resources */ = {isa = PBXBuildFile; fileRef = F1CA230726BC45770071CD5D /* photo_detail.json */; };
 		F1CA230E26BC45D40071CD5D /* NetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA230D26BC45D40071CD5D /* NetworkMock.swift */; };
+		F1CA231226BCE7020071CD5D /* Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA231126BCE7020071CD5D /* Convertible.swift */; };
+		F1CA231626BCE7290071CD5D /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA231526BCE7290071CD5D /* Reusable.swift */; };
+		F1CA231A26BCE7450071CD5D /* Object+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA231926BCE7450071CD5D /* Object+Ext.swift */; };
+		F1CA231E26BCE9B80071CD5D /* RMPhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA231D26BCE9B80071CD5D /* RMPhotoDetail.swift */; };
+		F1CA232226BD5F650071CD5D /* SavedPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA232126BD5F650071CD5D /* SavedPhotoModel.swift */; };
+		F1CA232626BD668B0071CD5D /* FileManager+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA232526BD668B0071CD5D /* FileManager+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +90,12 @@
 		F1CA230226BC45340071CD5D /* MockDataCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataCreator.swift; sourceTree = "<group>"; };
 		F1CA230726BC45770071CD5D /* photo_detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = photo_detail.json; sourceTree = "<group>"; };
 		F1CA230D26BC45D40071CD5D /* NetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMock.swift; sourceTree = "<group>"; };
+		F1CA231126BCE7020071CD5D /* Convertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convertible.swift; sourceTree = "<group>"; };
+		F1CA231526BCE7290071CD5D /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		F1CA231926BCE7450071CD5D /* Object+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object+Ext.swift"; sourceTree = "<group>"; };
+		F1CA231D26BCE9B80071CD5D /* RMPhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPhotoDetail.swift; sourceTree = "<group>"; };
+		F1CA232126BD5F650071CD5D /* SavedPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPhotoModel.swift; sourceTree = "<group>"; };
+		F1CA232526BD668B0071CD5D /* FileManager+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				F1CA22FA26BC42820071CD5D /* PhotoDetail.swift */,
+				F1CA231D26BCE9B80071CD5D /* RMPhotoDetail.swift */,
+				F1CA232126BD5F650071CD5D /* SavedPhotoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +222,10 @@
 				F157520226BC21C900F2C026 /* StoryboardName.swift */,
 				F1CA22C826BC27AB0071CD5D /* Rx+Ext.swift */,
 				F1CA22E326BC30F10071CD5D /* UIImagePickerController+Rx.swift */,
+				F1CA231126BCE7020071CD5D /* Convertible.swift */,
+				F1CA231526BCE7290071CD5D /* Reusable.swift */,
+				F1CA231926BCE7450071CD5D /* Object+Ext.swift */,
+				F1CA232526BD668B0071CD5D /* FileManager+Ext.swift */,
 			);
 			path = "Extension+Utils";
 			sourceTree = "<group>";
@@ -378,6 +396,7 @@
 			files = (
 				F15751FD26BC212200F2C026 /* TabBarViewModel.swift in Sources */,
 				F1CA22C926BC27AB0071CD5D /* Rx+Ext.swift in Sources */,
+				F1CA231E26BCE9B80071CD5D /* RMPhotoDetail.swift in Sources */,
 				F157520726BC22ED00F2C026 /* NavigationController.swift in Sources */,
 				F1CA22E426BC30F10071CD5D /* UIImagePickerController+Rx.swift in Sources */,
 				F157520326BC21C900F2C026 /* StoryboardName.swift in Sources */,
@@ -388,14 +407,19 @@
 				F15751E326BC202000F2C026 /* ViewModelType.swift in Sources */,
 				F1CA22F726BC36670071CD5D /* TypeSelectViewModel.swift in Sources */,
 				F15751FC26BC212200F2C026 /* TabBarViewController.swift in Sources */,
+				F1CA231626BCE7290071CD5D /* Reusable.swift in Sources */,
 				F1CA22FB26BC42820071CD5D /* PhotoDetail.swift in Sources */,
+				F1CA232626BD668B0071CD5D /* FileManager+Ext.swift in Sources */,
 				F15751E726BC204100F2C026 /* NetworkManager.swift in Sources */,
 				F157516A26BC163F00F2C026 /* ViewController.swift in Sources */,
 				F1CA22F626BC36670071CD5D /* TypeSelectViewController.swift in Sources */,
 				F1CA22DF26BC2C4D0071CD5D /* LandingViewController.swift in Sources */,
+				F1CA232226BD5F650071CD5D /* SavedPhotoModel.swift in Sources */,
+				F1CA231226BCE7020071CD5D /* Convertible.swift in Sources */,
 				F1CA22E026BC2C4D0071CD5D /* LandingViewModel.swift in Sources */,
 				F157516626BC163F00F2C026 /* AppDelegate.swift in Sources */,
 				F1CA22FF26BC42E00071CD5D /* RequestProtocol.swift in Sources */,
+				F1CA231A26BCE7450071CD5D /* Object+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
