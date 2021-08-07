@@ -161,13 +161,13 @@
 		F157516426BC163F00F2C026 /* scai_ios_test */ = {
 			isa = PBXGroup;
 			children = (
+				F15751C526BC1E1900F2C026 /* Application */,
 				F15751D126BC1E4300F2C026 /* Network */,
-				F15751D026BC1E3B00F2C026 /* Extension+Utils */,
+				F15751C926BC1E2800F2C026 /* Models */,
 				F15751CF26BC1E3700F2C026 /* Common */,
 				F15751CC26BC1E3100F2C026 /* Scene */,
-				F15751C926BC1E2800F2C026 /* Models */,
 				F15751C826BC1E2100F2C026 /* Resources */,
-				F15751C526BC1E1900F2C026 /* Application */,
+				F15751D026BC1E3B00F2C026 /* Extension+Utils */,
 			);
 			path = scai_ios_test;
 			sourceTree = "<group>";
