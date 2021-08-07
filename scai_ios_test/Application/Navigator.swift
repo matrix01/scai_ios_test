@@ -20,6 +20,7 @@ class Navigator {
         case tab(viewModel: ViewModel)
         case typeSelect(viewModel: ViewModel)
         case gallery(viewModel: ViewModel)
+        case detail(viewModel: ViewModel)
     }
 
     enum Transition {
@@ -37,11 +38,15 @@ class Navigator {
         case .typeSelect(let viewModel):
             let typeVC = StoryboardName.typeSelect.viewController as? TypeSelectViewController
             typeVC?.setup(viewModel: viewModel, navigator: self)
-            return typeVC ?? UIViewController()
+            return typeVC
         case .gallery(let viewModel):
             let galleryVC = StoryboardName.gallery.viewController as? GalleryViewController
             galleryVC?.setup(viewModel: viewModel, navigator: self)
-            return galleryVC ?? UIViewController()
+            return galleryVC
+        case .detail(let viewModel):
+            let detailVC = StoryboardName.detail.viewController as? DetailViewController
+            detailVC?.setup(viewModel: viewModel, navigator: self)
+            return detailVC
         }
     }
 

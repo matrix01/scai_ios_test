@@ -9,7 +9,6 @@ class TabBarViewController: UITabBarController, Navigatable, RxMediaPickerDelega
     var viewModel: TabBarViewModel?
     var navigator: Navigator?
     var picker: RxMediaPicker!
-    private let showGalleryTigger = BehaviorRelay<Bool>(value: false)
 
     init(viewModel: ViewModel?, navigator: Navigator) {
         self.viewModel = viewModel as? TabBarViewModel
@@ -35,8 +34,6 @@ class TabBarViewController: UITabBarController, Navigatable, RxMediaPickerDelega
         switch item.title {
         case "Camera":
             self.takePhoto()
-        case "Gallery":
-            showGalleryTigger.accept(true)
         default:
             break
         }
@@ -47,8 +44,7 @@ class TabBarViewController: UITabBarController, Navigatable, RxMediaPickerDelega
         guard let viewModel = viewModel else { return }
         let willAppear = rx.viewWillAppear.mapToVoid().asDriverOnErrorJustComplete()
         
-        let input = TabBarViewModel.Input(trigger: willAppear,
-                                          showGalleryTrigger: showGalleryTigger.asDriver())
+        let input = TabBarViewModel.Input(trigger: willAppear)
         let output = viewModel.transform(input: input)
 
         output.tabBarItems.drive(onNext: { [weak self] tabBarItems in
@@ -57,10 +53,6 @@ class TabBarViewController: UITabBarController, Navigatable, RxMediaPickerDelega
                 strongSelf.setViewControllers(controllers, animated: false)
             }
         }).disposed(by: rx.disposeBag)
-        
-        output.showGalleryTrigger
-            .drive(rx.showImageGallery)
-            .disposed(by: rx.disposeBag)
         
         picker = RxMediaPicker(delegate: self)
     }
@@ -85,12 +77,6 @@ fileprivate extension Reactive where Base: TabBarViewController {
             guard let provider = Application.shared.provider else { return }
             let viewModel = TypeSelectViewModel(provider: provider, image: image)
             base.navigator?.show(segue: .typeSelect(viewModel: viewModel), sender: base)
-        }
-    }
-    
-    var showImageGallery: Binder<GalleryViewModel> {
-        Binder(self.base) {base, viewModel in
-            base.navigator?.show(segue: .gallery(viewModel: viewModel), sender: base)
         }
     }
 }

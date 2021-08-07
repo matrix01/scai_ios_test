@@ -9,15 +9,20 @@ import UIKit
 
 enum TabBarItem: Int {
     case camera, gallery
-
+    
     private func controller(with viewModel: ViewModel, navigator: Navigator) -> UIViewController {
-        if let viewController = StoryboardName.landing.viewController as? LandingViewController {
-            viewController.setup(viewModel: viewModel, navigator: navigator)
-            return viewController
+        switch self {
+        case .camera:
+            let viewController = StoryboardName.landing.viewController as? LandingViewController
+            viewController?.setup(viewModel: viewModel, navigator: navigator)
+            return viewController ?? UIViewController()
+        case .gallery:
+            let viewController = StoryboardName.gallery.viewController as? GalleryViewController
+            viewController?.setup(viewModel: viewModel, navigator: navigator)
+            return viewController ?? UIViewController()
         }
-        return UIViewController()
     }
-
+    
     var image: UIImage? {
         switch self {
         case .camera: return UIImage(systemName: "camera")

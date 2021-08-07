@@ -20,6 +20,16 @@ class GalleryViewController: ViewController {
         title = "Gallery"
         collectionView.register(UINib(nibName: "PhotoCollectionViewCell", bundle: nil),
                                 forCellWithReuseIdentifier: PhotoCollectionViewCell.reuseID)
+        
+        let newBackButton = UIBarButtonItem(title: "Back",
+                                            style: UIBarButtonItem.Style.plain,
+                                            target: self,
+                                            action: #selector(GalleryViewController.back(sender:)))
+        navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc private func back(sender: UIBarButtonItem) {
+        _ = navigationController?.popToRootViewController(animated: true)
     }
     
     private func bindViewModel() {
@@ -42,7 +52,30 @@ class GalleryViewController: ViewController {
             .drive(collectionView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
         
+        collectionView.rx.itemSelected
+            .map { indexPath -> SavedPhotoModel? in
+                guard let models = dataSource.sectionModels.first?.items else {
+                    return nil
+                }
+                return models[indexPath.row]
+            }
+            .asObservable()
+            .filterNil()
+            .asDriverOnErrorJustComplete()
+            .drive(rx.showClothDetail)
+            .disposed(by: rx.disposeBag)
+        
         collectionView.rx.setDelegate(self).disposed(by: rx.disposeBag)
+    }
+}
+
+fileprivate extension Reactive where Base: GalleryViewController {
+    var showClothDetail: Binder<SavedPhotoModel> {
+        Binder(self.base) {base, photoModel in
+            guard let provider = Application.shared.provider else { return }
+            let detailModel = DetailViewModel(provider: provider, photoModel: photoModel)
+            base.navigator?.show(segue: .detail(viewModel: detailModel), sender: base)
+        }
     }
 }
 
