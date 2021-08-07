@@ -45,7 +45,7 @@ enum ApiRequest {
         let name            = UIDevice.current.name
         let scale           = UIScreen.main.scale
 
-        return String(format: "%@/%@ (%@; iOS %@; DeviceName/%@; Scale/%0.2f)",
+        return String(format: "%@ (%@; iOS %@; DeviceName/%@; Scale/%0.2f)",
                       projectName, model, systemVersion, name, scale)
     }
     var method: String {

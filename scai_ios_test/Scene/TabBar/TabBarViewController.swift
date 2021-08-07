@@ -58,7 +58,7 @@ class TabBarViewController: UITabBarController, Navigatable, RxMediaPickerDelega
     }
     
     fileprivate func takePhoto() {
-        picker.selectImage()
+        picker.takePhoto()
             .observe(on: MainScheduler.instance)
             .catch({ error -> Observable<(UIImage, UIImage?)> in
                 .empty()
